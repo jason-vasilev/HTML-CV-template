@@ -1,0 +1,161 @@
+:root {
+  --section-margin: 32px;
+  --color-secondary: #333;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 112%;
+  line-height: 1.7;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+h4 {
+  margin: 0;
+}
+
+p {
+  margin-top: 0;
+}
+
+ul {
+  padding-left: 24px;
+}
+
+.main {
+  max-width: 768px;
+  margin: 40px auto;
+}
+
+.intro {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: var(--section-margin);
+
+  &__header {
+    align-self: center;
+  }
+
+  &__header-title {
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  &__header-subtitle {
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-left: 4px;
+    color: #333;
+  }
+
+  &__picture {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 50%;
+    margin: 0 48px;
+    border: 4px solid lightskyblue;
+  }
+}
+
+
+/* SUMMARY */
+
+.summary {
+  display: grid;
+  grid-template-columns: 1fr auto;
+
+  &__details {
+    margin: 48px auto;
+  }
+}
+
+
+/* SECTION */
+
+.section__title {
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  padding: 16px 16px 16px 34%;
+}
+
+.article {
+  display: grid;
+  grid-template-columns: 30% auto;
+
+  &:first-of-type .article__meta,
+  &:first-of-type .article__details {
+    padding-top: 32px;
+  }
+
+
+  &__meta {
+    border-right: 1px solid grey;
+    position: relative;
+    padding-right: 32px;
+  }
+
+  &__meta-title {
+    position: relative;
+
+    ::before {
+      content: '';
+      position: absolute;
+      right: -41px;
+      /* clear magic number */
+      top: 8px;
+      width: 16px;
+      height: 16px;
+      display: block;
+      background-color: grey;
+      border-radius: 50%;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: -38px;
+      /* clear magic number */
+      top: 11px;
+      /* clear magic number */
+      width: 10px;
+      /* clear magic number */
+      height: 10px;
+      /* clear magic number */
+      display: block;
+      background-color: white;
+      border-radius: 50%;
+    }
+
+    &--current::after,
+    &--current::before {
+      background-color: grey;
+    }
+  }
+
+  &__meta-period {
+    color: var(--color-secondary);
+  }
+
+  &__details {
+    padding: 0 0 16px 32px;
+    color: var(--color-secondary);
+  }
+}
